@@ -40,23 +40,25 @@ module Taxonomy
       if only_names
         res = []
         ngrams.each do |word|
-          word = word.downcase.to_sym
-          match = @dict[word]
-          match = nil if match && group && match.group != group 
-          match = nil if match && parent && match.parent != parent 
+          match = find_match(word, group, parent)
           res << match.name if match
         end
       else
         res = {}
         ngrams.each do |word|
-          word = word.downcase.to_sym
-          match = @dict[word]
-          match = nil if match && group && match.group != group 
-          match = nil if match && parent && match.parent != parent 
+          match = find_match(word, group, parent)
           res[match.name] = match if match
         end
       end
       res
+    end
+
+    def find_match(word, group, parent)
+      word = word.downcase.to_sym
+      match = @dict[word]
+      match = nil if match && group && match.group != group 
+      match = nil if match && parent && match.parent != parent 
+      match
     end
   end
 end
