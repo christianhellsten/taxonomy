@@ -30,7 +30,7 @@ module Taxonomy
         break if word_count <= max
         res.add words[min..max].join(' ')
       end
-      res
+      res.to_a
     end
 
     def ngrams(range=1..3)
