@@ -1,0 +1,26 @@
+- name: Software
+
+- name: Operating system
+  parent: Software
+
+- name: Ubuntu
+  parent: Operating system
+  group: Linux
+  synonyms:
+    - Ubuntu TV
+    - Ubuntu for Android
+  misspellings:
+    - Ubuntu
+
+- name: Debian
+  parent: Operating system
+  group: Linux
+  synonyms:
+  misspellings: 
+
+- name: OSX
+  parent: Operating system
+  group: Mac
+  synonyms:
+    - OS X
+  misspellings: 
